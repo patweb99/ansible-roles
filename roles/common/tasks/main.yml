@@ -1,2 +1,6 @@
 ---
 # tasks file for common
+- name: yum update
+  yum:
+    name: "*"
+    state: latest
