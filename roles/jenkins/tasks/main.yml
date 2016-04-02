@@ -1,0 +1,23 @@
+---
+# tasks file for jenkins
+- name: install java
+  yum:
+    name: "{{ item }}"
+    state: present
+  with_items:
+  - java
+
+- name: copy repo
+  copy:
+    src: jenkins.repo
+    dest: /etc/yum.repos.d/jenkins.repo
+
+- name: rpm key
+  rpm_key:
+    key: https://jenkins-ci.org/redhat/jenkins-ci.org.key
+    state: present
+
+- name: apt-get install jenkins
+  yum:
+    name: jenkins
+    state: present

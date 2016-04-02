@@ -1,0 +1,13 @@
+---
+# tasks file for python
+- name: yum installs
+  yum:
+    name: "{{ item }}"
+    state: present
+  with_items:
+  - python34
+  - python34-virtualenv
+  - postgresql-devel
+  - gcc
+  - libjpeg-devel
+  - zlib-devel
